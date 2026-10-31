@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-ink antialiased;
+    background-color: #F2F6F8;
+    /* graph paper */
+    background-image: linear-gradient(rgba(16, 41, 74, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 41, 74, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  h1, h2, h3 { letter-spacing: -0.02em; }
+  :focus-visible { outline: 2px solid #D62839; outline-offset: 2px; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply bg-indigo-600 text-white hover:bg-indigo-700; }
+  .btn-secondary { @apply border border-slate-300 bg-white text-ink hover:border-ink; }
+  .btn-danger { @apply border border-red-300 bg-white text-red-700 hover:bg-red-50; }
+  .input { @apply w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm text-ink placeholder:text-slate-400 focus:border-ink focus:outline-none focus:ring-1 focus:ring-ink; }
+  .card { @apply rounded border border-slate-300 bg-white p-6; }
+  .th { @apply px-4 py-2.5 text-left text-xs font-semibold text-slate-500; }
+  .td { @apply px-4 py-3 text-sm text-slate-700; }
+  /* the red margin line of looseleaf paper, used once on the dashboard content area */
+  .margin-rule { background-image: linear-gradient(to right, transparent 34px, rgba(214, 40, 57, 0.30) 34px, rgba(214, 40, 57, 0.30) 36px, transparent 36px); }
+  .highlighter { background: linear-gradient(transparent 58%, #FFE98A 58%); }
+  .stamp-in { animation: stamp-in 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+}
+@keyframes stamp-in { from { opacity: 0; transform: scale(1.7) rotate(-14deg); } to { opacity: 1; transform: scale(1) rotate(-6deg); } }
+@media (prefers-reduced-motion: reduce) { .stamp-in { animation: none; } }
